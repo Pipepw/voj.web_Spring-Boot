@@ -42,6 +42,7 @@ package org.verwandlung.voj.web.mapper;
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import org.verwandlung.voj.web.model.DiscussionThread;
 
 import java.util.List;
@@ -52,6 +53,7 @@ import java.util.List;
  * @author Haozhe Xie
  */
 @Mapper
+@Repository //注明是Dao层操作
 @CacheNamespace(implementation = org.mybatis.caches.ehcache.EhcacheCache.class)
 public interface DiscussionThreadMapper {
 	/**

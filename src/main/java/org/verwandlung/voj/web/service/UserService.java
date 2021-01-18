@@ -860,6 +860,5 @@ public class UserService {
 	 * 用于发送电子邮件至用户邮箱.
 	 */
 	@Autowired
-	@Qualifier("vojMailSender")
 	private MailSender mailSender;
 }

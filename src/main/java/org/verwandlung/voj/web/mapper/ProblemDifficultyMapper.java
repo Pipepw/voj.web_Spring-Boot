@@ -3,6 +3,7 @@ package org.verwandlung.voj.web.mapper;
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import org.verwandlung.voj.web.model.ProblemDifficulty;
 import org.verwandlung.voj.web.model.ProblemDifficultyRelationship;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @author Pipepw
  */
 @Mapper
+@Repository //注明是Dao层操作
 @CacheNamespace(implementation = org.mybatis.caches.ehcache.EhcacheCache.class)
 public interface ProblemDifficultyMapper {
 

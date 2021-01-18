@@ -41,6 +41,7 @@ package org.verwandlung.voj.web.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 import org.verwandlung.voj.web.model.Contest;
 
 import java.util.List;
@@ -51,6 +52,7 @@ import java.util.List;
  * @author Haozhe Xie
  */
 @Mapper
+@Repository //注明是Dao层操作
 public interface ContestMapper {
 	/**
 	 * [此方法仅供管理员使用]
