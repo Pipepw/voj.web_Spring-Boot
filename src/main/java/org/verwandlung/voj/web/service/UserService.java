@@ -49,6 +49,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.mail.MailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,7 +69,7 @@ import org.verwandlung.voj.web.model.UserGroup;
 import org.verwandlung.voj.web.model.UserMeta;
 import org.verwandlung.voj.web.util.DigestUtils;
 import org.verwandlung.voj.web.util.HtmlTextFilter;
-import org.verwandlung.voj.web.util.MailSender;
+import org.verwandlung.voj.web.util.MyMailSender;
 import org.verwandlung.voj.web.util.OffensiveWordFilter;
 
 /**
@@ -860,5 +861,5 @@ public class UserService {
 	 * 用于发送电子邮件至用户邮箱.
 	 */
 	@Autowired
-	private MailSender mailSender;
+	private MyMailSender mailSender;
 }

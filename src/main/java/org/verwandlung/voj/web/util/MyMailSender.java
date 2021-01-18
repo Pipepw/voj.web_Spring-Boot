@@ -68,14 +68,14 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
  * @author Haozhe Xie
  */
 @Component
-public class MailSender {
+public class MyMailSender {
 	/**
 	 * MailSender的构造函数.
 	 * @param freeMarkerConfigurer - FreeMarker的配置器
 	 * @param mailSender - JavaMailSender对象
 	 */
 	@Autowired
-	private MailSender(FreeMarkerConfigurer freeMarkerConfigurer, JavaMailSender mailSender) {
+	private MyMailSender(FreeMarkerConfigurer freeMarkerConfigurer, JavaMailSender mailSender) {
 		this.freeMarkerConfigurer = freeMarkerConfigurer;
 		this.mailSender = mailSender;
 	}
@@ -161,5 +161,5 @@ public class MailSender {
 	/**
 	 * 日志记录器.
 	 */
-	private static final Logger LOGGER = LogManager.getLogger(MailSender.class);
+	private static final Logger LOGGER = LogManager.getLogger(MyMailSender.class);
 }
