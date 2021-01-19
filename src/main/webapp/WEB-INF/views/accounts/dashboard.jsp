@@ -7,7 +7,10 @@
 
 <%
     ResourceBundle res = ResourceBundle.getBundle("application");
+    String BaseUrl = res.getString("url.base");
     String version = res.getString("build.version");
+    session.setAttribute("BaseUrl",BaseUrl);
+    session.setAttribute("version",version);
 %>
 <!DOCTYPE html>
 <html lang="${language}">
@@ -21,21 +24,21 @@
     <!-- Icon -->
     <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="css/style.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="css/accounts/dashboard.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/style.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/accounts/dashboard.css?v=<%=version%>" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="js/md5.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=<%=version%>"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="js/jquery.placeholder.min.js?v=<%=version%>"></script>
+        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=<%=version%>"></script>
     <![endif]-->
     <!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="css/font-awesome-ie7.min.css?v=<%=version%>" />
+        <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome-ie7.min.css?v=<%=version%>" />
     <![endif]-->
     <!--[if lte IE 6]>
         <script type="text/javascript"> 
@@ -251,9 +254,9 @@
     <%@ include file="../include/footer.jsp" %>
     <!-- JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/site.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/site.js?v=<%=version%>"></script>
     <script type="text/javascript">
-        $.getScript('js/highcharts.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/highcharts.min.js?v=<%=version%>', function() {
             return getSubmissionsOfUsers(7);
         });
     </script>
@@ -340,7 +343,7 @@
         }
     </script>
     <script type="text/javascript">
-        $.getScript('js/markdown.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/markdown.min.js?v=<%=version%>', function() {
             converter = Markdown.getSanitizingConverter();
             editor    = new Markdown.Editor(converter);
             editor.run();

@@ -16,19 +16,19 @@
     <!-- Icon -->
     <link href="img/favicon.ico?v=${build}" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css?v=${build}" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css?v=${build}" />
-    <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css?v=${build}" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css?v=${build}" />
-    <link rel="stylesheet" type="text/css" href="css/administration/style.css?v=${build}" />
-    <link rel="stylesheet" type="text/css" href="css/administration/dashboard.css?v=${build}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=${build}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=${build}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=${build}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=${build}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/administration/style.css?v=${build}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/administration/dashboard.css?v=${build}" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js?v=${build}"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js?v=${build}"></script>
-    <script type="text/javascript" src="js/md5.min.js?v=${build}"></script>
-    <script type="text/javascript" src="js/pace.min.js?v=${build}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=${build}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=${build}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=${build}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/pace.min.js?v=${build}"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="js/jquery.placeholder.min.js?v=${build}"></script>
+        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=${build}"></script>
     <![endif]-->
     <!--[if lte IE 7]>
         <script type="text/javascript"> 
@@ -185,7 +185,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%@ include file="../administration/include/footer-script.jsp" %>
     <script type="text/javascript">
-        $.getScript('js/highcharts.min.js?v=${build}', function() {
+        $.getScript('${BaseUrl}/js/highcharts.min.js?v=${build}', function() {
             return getSubmissionsOfUsers(7);
         });
     </script>

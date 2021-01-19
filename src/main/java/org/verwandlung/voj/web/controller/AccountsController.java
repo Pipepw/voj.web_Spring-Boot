@@ -136,7 +136,7 @@ public class AccountsController {
 	 */
 	private boolean isLoggedIn(HttpSession session) {
 		Boolean isLoggedIn = (Boolean)session.getAttribute("isLoggedIn");
-		if ( isLoggedIn == null || !isLoggedIn.booleanValue() ) {
+		if ( isLoggedIn == null || !isLoggedIn) {
 			return false;
 		}
 		return true;
