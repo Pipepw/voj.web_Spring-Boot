@@ -1,10 +1,14 @@
+<%@ page import="java.util.ResourceBundle" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<spring:eval expression="@propertyConfigurer.getProperty('url.cdn')" var="cdnUrl" />
-<spring:eval expression="@propertyConfigurer.getProperty('build.version')" var="version" />
+<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
+<%
+    ResourceBundle res = ResourceBundle.getBundle("application");
+    String version = res.getString("build.version");
+%>
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
@@ -15,23 +19,23 @@
     <meta name="description" content="${description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="${cdnUrl}/img/favicon.ico?v=${version}" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/bootstrap.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/bootstrap-responsive.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/flat-ui.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/font-awesome.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/style.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/contests/contests.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/contests/contests.css?v=<%=version%>" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="${cdnUrl}/js/jquery-1.11.1.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/bootstrap.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/md5.min.js?v=${version}"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/md5.min.js?v=<%=version%>"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="${cdnUrl}/js/jquery.placeholder.min.js?v=${version}"></script>
+        <script type="text/javascript" src="js/jquery.placeholder.min.js?v=<%=version%>"></script>
     <![endif]-->
     <!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/font-awesome-ie7.min.css?v=${version}" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome-ie7.min.css?v=<%=version%>" />
     <![endif]-->
     <!--[if lte IE 6]>
         <script type="text/javascript"> 
@@ -41,7 +45,7 @@
 </head>
 <body>
     <!-- Header -->
-    <%@ include file="/WEB-INF/views/include/header.jsp" %>
+    <%@ include file="../include/header.jsp" %>
     <!-- Content -->
     <div id="content" class="container">
         <div id="main-content" class="row-fluid">
@@ -74,7 +78,7 @@
                 </table> <!-- .table -->
                 <div id="more-contests">
                     <p class="availble"><spring:message code="voj.contests.contests.more-contests" text="More Contests..." /></p>
-                    <img src="${cdnUrl}/img/loading.gif?v=${version}" alt="Loading" class="hide" />
+                    <img src="img/loading.gif?v=<%=version%>" alt="Loading" class="hide" />
                 </div>
             </div> <!-- #contests -->
             <div id="sidebar" class="span4">
@@ -91,11 +95,11 @@
         </div> <!-- #main-content -->
     </div> <!-- #content -->
     <!-- Footer -->
-    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
     <!-- Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="${cdnUrl}/js/site.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/date-${language}.min.js?v=${version}"></script>
+    <script type="text/javascript" src="js/site.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/date-${language}.min.js?v=<%=version%>"></script>
     <script type="text/javascript">
         function setLoadingStatus(isLoading) {
             if ( isLoading ) {

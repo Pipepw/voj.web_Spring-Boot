@@ -246,7 +246,7 @@ div#wmd-button-bar li.wmd-spacer {
 }
 
 div#wmd-button-bar li.wmd-button > span {
-	background-image: url('../../img/wmd-buttons.svg');
+	background-image: url('../../../../webapp/assets/img/wmd-buttons.svg');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	display: inline-block;
@@ -270,7 +270,7 @@ div.wmd-panel textarea.wmd-input {
 }
 
 div.wmd-preview {
-	background-image: url('../../img/wmd-draft.png');
+	background-image: url('../../../../webapp/assets/img/wmd-draft.png');
 	border: 1px dotted #ccc;
 	clear: both;
 	margin-top: 10px;

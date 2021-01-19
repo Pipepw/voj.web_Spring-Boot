@@ -15,8 +15,7 @@ import org.springframework.jms.core.JmsTemplate;
 import javax.jms.ConnectionFactory;
 
 @SpringBootApplication
-@EnableJms
-@MapperScan("org.verwandlung.voj.web.mapper")
+@EnableJms  //启动Jms，替代了之前在下面写的Bean
 public class WebApplication {
 
     public static void main(String[] args) {

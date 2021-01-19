@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<spring:eval expression="@propertyConfigurer.getProperty('url.cdn')" var="cdnUrl" />
-<spring:eval expression="@propertyConfigurer.getProperty('build.version')" var="version" />
+<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
     <!--[if lte IE 7]>
     <div id="upgrade-browser">
         <div class="row-fluid container">
@@ -28,7 +27,7 @@
         <div class="container">
             <div id="logo" class="span6">
                 <a href="<c:url value="/" />">
-<%--                    <img src="${cdnUrl}/img/logo.png?v=${version}" alt="Logo" />--%>
+<%--                    <img src="img/logo.png?v=<%=version%>" alt="Logo" />--%>
                     <div style="font-size:35px;font-weight: 700">SXU-CCF Online Judge</div>
                 </a>
             </div> <!-- #logo -->
@@ -51,7 +50,7 @@
             <c:choose>
             <c:when test="${isLogin}">
                 <div>
-                    <img src="${cdnUrl}${myProfile.avatarUrl}?v=${version}" alt="avatar" class="img-circle" id="avatarImg"/>
+                    <img src="${myProfile.avatarUrl}?v=<%=version%>" alt="avatar" class="img-circle" id="avatarImg"/>
                     <form class="changeAvatar" method="post" onSubmit="changeAvatar(${myProfile.uid}); return false;"
                           enctype="multipart/form-data" style="position: absolute; top: 130px; left: 170px; display: none">
                         选择一个文件:

@@ -2,14 +2,14 @@
         <div id="sidebar">
             <div id="logo">
                 <a href="<c:url value="/" />">
-<%--                    <img src="${cdnUrl}/img/logo-light.png" alt="Logo" />--%>
+<%--                    <img src="img/logo-light.png" alt="Logo" />--%>
                         <div style="font-size:20px;font-weight: 700">SXU-CCF Online Judge</div>
                 </a>
             </div> <!-- #logo -->
             <div id="sidebar-user">
                 <div class="row-fluid">
                     <div class="span3">
-                        <img src="${cdnUrl}/img/avatar.jpg" alt="avatar">
+                        <img src="img/avatar.jpg" alt="avatar">
                     </div> <!-- .span3 -->
                     <div class="offset1 span8">
                         <spring:message code="voj.administration.include.sidebar.welcome-back" text="Welcome back," /> <br>${myProfile.username} <br>

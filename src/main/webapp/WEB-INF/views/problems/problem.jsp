@@ -1,10 +1,14 @@
+<%@ page import="java.util.ResourceBundle" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setLocale value="${language}" />
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<spring:eval expression="@propertyConfigurer.getProperty('url.cdn')" var="cdnUrl" />
-<spring:eval expression="@propertyConfigurer.getProperty('build.version')" var="version" />
+<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
+<%
+    ResourceBundle res = ResourceBundle.getBundle("application");
+    String version = res.getString("build.version");
+%>
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
@@ -15,25 +19,25 @@
     <meta name="description" content="${description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="${cdnUrl}/img/favicon.ico?v=${version}" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/bootstrap.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/bootstrap-responsive.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/flat-ui.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/font-awesome.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/codemirror.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/style.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/problems/problem.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/highlight.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/codemirror.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/problems/problem.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.min.css?v=<%=version%>" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="${cdnUrl}/js/jquery-1.11.1.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/bootstrap.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/md5.min.js?v=${version}"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/md5.min.js?v=<%=version%>"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="${cdnUrl}/js/jquery.placeholder.min.js?v=${version}"></script>
+        <script type="text/javascript" src="js/jquery.placeholder.min.js?v=<%=version%>"></script>
     <![endif]-->
     <!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/font-awesome-ie7.min.css?v=${version}" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome-ie7.min.css?v=<%=version%>" />
     <![endif]-->
     <!--[if lte IE 6]>
         <script type="text/javascript"> 
@@ -43,7 +47,7 @@
 </head>
 <body>
     <!-- Header -->
-    <%@ include file="/WEB-INF/views/include/header.jsp" %>
+    <%@ include file="../include/header.jsp" %>
     <!-- Content -->
     <div id="content" class="container">
         <div class="row-fluid">
@@ -193,10 +197,10 @@
         </div> <!-- .row-fluid -->
     </div> <!-- #content -->
     <!-- Footer -->
-    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+    <%@ include file="../include/footer.jsp" %>
     <!-- Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="${cdnUrl}/js/site.js?v=${version}"></script>
+    <script type="text/javascript" src="js/site.js?v=<%=version%>"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -204,7 +208,7 @@
     </script>
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript">
-        $.getScript('${cdnUrl}/js/markdown.min.js?v=${version}', function() {
+        $.getScript('js/markdown.min.js?v=<%=version%>', function() {
             converter = Markdown.getSanitizingConverter();
 
             $('.markdown').each(function() {
@@ -216,15 +220,15 @@
         });
     </script>
     <script type="text/javascript">
-        $.getScript('${cdnUrl}/js/codemirror.min.js?v=${version}', function() {
+        $.getScript('js/codemirror.min.js?v=<%=version%>', function() {
            $.when(
-                $.getScript('${cdnUrl}/mode/clike.min.js?v=${version}'),
-                $.getScript('${cdnUrl}/mode/go.min.js?v=${version}'),
-                $.getScript('${cdnUrl}/mode/pascal.min.js?v=${version}'),
-                $.getScript('${cdnUrl}/mode/perl.min.js?v=${version}'),
-                $.getScript('${cdnUrl}/mode/php.min.js?v=${version}'),
-                $.getScript('${cdnUrl}/mode/python.min.js?v=${version}'),
-                $.getScript('${cdnUrl}/mode/ruby.min.js?v=${version}'),
+                $.getScript('mode/clike.min.js?v=<%=version%>'),
+                $.getScript('mode/go.min.js?v=<%=version%>'),
+                $.getScript('mode/pascal.min.js?v=<%=version%>'),
+                $.getScript('mode/perl.min.js?v=<%=version%>'),
+                $.getScript('mode/php.min.js?v=<%=version%>'),
+                $.getScript('mode/python.min.js?v=<%=version%>'),
+                $.getScript('mode/ruby.min.js?v=<%=version%>'),
                 $.Deferred(function(deferred) {
                     $(deferred.resolve);
                 })
@@ -242,7 +246,7 @@
         });
     </script>
     <script type="text/javascript">
-        $.getScript('${cdnUrl}/js/highlight.min.js?v=${version}', function() {
+        $.getScript('js/highlight.min.js?v=<%=version%>', function() {
             $('code').each(function(i, block) {
                 hljs.highlightBlock(block);
             });

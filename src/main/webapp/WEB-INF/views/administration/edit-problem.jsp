@@ -1,9 +1,13 @@
+<%@ page import="java.util.ResourceBundle" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<spring:eval expression="@propertyConfigurer.getProperty('url.cdn')" var="cdnUrl" />
-<spring:eval expression="@propertyConfigurer.getProperty('build.version')" var="version" />
+<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
+<%
+    ResourceBundle res = ResourceBundle.getBundle("application");
+    String version = res.getString("build.version");
+%>
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
@@ -14,22 +18,22 @@
     <meta name="description" content="${description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="${cdnUrl}/img/favicon.ico?v=${version}" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/bootstrap.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/bootstrap-responsive.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/flat-ui.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/font-awesome.min.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/administration/style.css?v=${version}" />
-    <link rel="stylesheet" type="text/css" href="${cdnUrl}/css/administration/new-problem.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/flat-ui.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/administration/style.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="css/administration/new-problem.css?v=<%=version%>" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="${cdnUrl}/js/jquery-1.11.1.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/bootstrap.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/flat-ui.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/md5.min.js?v=${version}"></script>
-    <script type="text/javascript" src="${cdnUrl}/js/pace.min.js?v=${version}"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/flat-ui.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/md5.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="js/pace.min.js?v=<%=version%>"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="${cdnUrl}/js/jquery.placeholder.min.js?v=${version}"></script>
+        <script type="text/javascript" src="js/jquery.placeholder.min.js?v=<%=version%>"></script>
     <![endif]-->
     <!--[if lte IE 7]>
         <script type="text/javascript"> 
@@ -40,10 +44,10 @@
 <body>
     <div id="wrapper">
         <!-- Sidebar -->
-        <%@ include file="/WEB-INF/views/administration/include/sidebar.jsp" %>
+        <%@ include file="../administration/include/sidebar.jsp" %>
         <div id="container">
             <!-- Header -->
-            <%@ include file="/WEB-INF/views/administration/include/header.jsp" %>
+            <%@ include file="../administration/include/header.jsp" %>
             <!-- Content -->
             <div id="content">
                 <h2 class="page-header"><i class="fa fa-file"></i> <spring:message code="voj.administration.edit-problem.edit-problem" text="Edit Problem" /></h2>
@@ -215,7 +219,7 @@
     </div> <!-- #wrapper -->
     <!-- Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%@ include file="/WEB-INF/views/administration/include/footer-script.jsp" %>
+    <%@ include file="../administration/include/footer-script.jsp" %>
     <script type="text/javascript">
         $(function() {
         <c:if test="${fn:length(checkpoints) != 0}">
@@ -231,7 +235,7 @@
         });
     </script>
     <script type='text/javascript'>
-        $.getScript('${cdnUrl}/js/markdown.min.js?v=${version}', function() {
+        $.getScript('js/markdown.min.js?v=<%=version%>', function() {
             converter = Markdown.getSanitizingConverter();
             editor    = new Markdown.Editor(converter);
             editor.run();

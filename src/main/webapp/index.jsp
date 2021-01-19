@@ -10,7 +10,7 @@
     <meta name="description" content="${Description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="${cdnUrl}/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 </head>
 <body>
     <c:redirect url="/"> </c:redirect>
