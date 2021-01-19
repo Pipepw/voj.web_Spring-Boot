@@ -1,7 +1,8 @@
+<%@ page import="java.util.ResourceBundle" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
+
 <%
     ResourceBundle res = ResourceBundle.getBundle("application");
     String version = res.getString("build.version");

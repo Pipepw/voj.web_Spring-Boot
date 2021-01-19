@@ -36,12 +36,8 @@ div#content div#introduction div.item {
 /*	background-image: url('../../img/sliders/SXU_img6.jpg');*/
 /*}*/
 
-/*div#content div#introduction div.item.third {*/
-/*	background-image: url('../../img/sliders/SXU_img11.jpg');*/
-/*}*/
-
 div#content div#introduction div.item.first {
-	background-image: url('../../../../webapp/assets/img/sliders/SXU_img14.jpg');
+	background-image: url('../../img/sliders/SXU_img14.jpg');
 }
 
 div#content div#slogan {

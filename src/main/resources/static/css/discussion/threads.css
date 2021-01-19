@@ -106,7 +106,7 @@ div#content div#main-content div#sidebar div#create-thread-widget {
 }
 
 div#content div#main-content div#sidebar div#create-thread-widget div.header {
-	background-image: url('../../../../webapp/assets/img/discussion.png');
+	background-image: url('../../img/discussion.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

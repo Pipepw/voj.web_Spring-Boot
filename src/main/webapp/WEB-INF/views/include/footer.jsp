@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
 <jsp:useBean id="date" class="java.util.Date" />
     <div id="footer">
         <div class="container">
@@ -19,7 +18,7 @@
                 </li>
             </ul>
             <p id="copyright">
-                <spring:message code="voj.include.footer.copyright" text="Copyright" />&copy; <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %> ${copyright}. 
+                <spring:message code="voj.include.footer.copyright" text="Copyright" />&copy; <%= new java.text.SimpleDateFormat("yyyy").format(new java.util.Date()) %> ${copyright}.
                 <spring:message code="voj.include.footer.all-rights-reserved" text="All rights reserved." />
             </p>
             <p>

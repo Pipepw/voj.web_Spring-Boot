@@ -221,7 +221,7 @@ public class DefaultController {
 			@RequestParam(value="language") String language,
 			HttpServletRequest request, HttpServletResponse response) {
 		LocaleUtils.setLocale(request, response, language);
-		
+
 		Map<String, Boolean> result = new HashMap<>(2, 1);
 		result.put("isSuccessful", true);
 		return result;

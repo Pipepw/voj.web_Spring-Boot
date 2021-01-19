@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setLocale value="${language}" />
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="test" uri="http://www.springframework.org/tags"%>
+
 <%
     ResourceBundle res = ResourceBundle.getBundle("application");
     String version = res.getString("build.version");
