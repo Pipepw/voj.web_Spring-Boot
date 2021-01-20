@@ -9,6 +9,8 @@
     ResourceBundle res = ResourceBundle.getBundle("application");
     String BaseUrl = res.getString("url.base");
     String version = res.getString("build.version");
+    session.setAttribute("BaseUrl",BaseUrl);
+    session.setAttribute("version",version);
 %>
 <!DOCTYPE html>
 <html lang="${language}">
@@ -20,22 +22,22 @@
     <meta name="description" content="${description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico?v=${version}" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/administration/style.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/administration/edit-submission.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/highlight.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/administration/style.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/administration/edit-submission.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/highlight.min.css?v=${version}" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/pace.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/pace.min.js?v=${version}"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=<%=version%>"></script>
+        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=${version}"></script>
     <![endif]-->
     <!--[if lte IE 7]>
         <script type="text/javascript"> 
@@ -113,7 +115,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <%@ include file="../administration/include/footer-script.jsp" %>
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/markdown.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/markdown.min.js?v=${version}', function() {
             converter = Markdown.getSanitizingConverter();
 
             $('.markdown').each(function() {
@@ -125,7 +127,7 @@
         });
     </script>
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/highlight.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/highlight.min.js?v=${version}', function() {
             $('code').each(function(i, block) {
                 hljs.highlightBlock(block);
             });
@@ -207,7 +209,7 @@
     </script>
     <c:if test="${submission.judgeResult.judgeResultName == 'Pending'}">
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/date-${language}.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/date-${language}.min.js?v=${version}', function() {
             var currentJudgeResult = 'Pending',
                 getterInterval     = setInterval(function() {
                     getRealTimeJudgeResult();

@@ -27,7 +27,7 @@
         <div class="container">
             <div id="logo" class="span6">
                 <a href="<c:url value="/" />">
-<%--                    <img src="img/logo.png?v=<%=version%>" alt="Logo" />--%>
+<%--                    <img src="img/logo.png?v=${version}" alt="Logo" />--%>
                     <div style="font-size:35px;font-weight: 700">SXU-CCF Online Judge</div>
                 </a>
             </div> <!-- #logo -->
@@ -50,7 +50,7 @@
             <c:choose>
             <c:when test="${isLogin}">
                 <div>
-                    <img src="${myProfile.avatarUrl}?v=<%=version%>" alt="avatar" class="img-circle" id="avatarImg"/>
+                    <img src="${myProfile.avatarUrl}?v=${version}" alt="avatar" class="img-circle" id="avatarImg"/>
                     <form class="changeAvatar" method="post" onSubmit="changeAvatar(${myProfile.uid}); return false;"
                           enctype="multipart/form-data" style="position: absolute; top: 130px; left: 170px; display: none">
                         选择一个文件:

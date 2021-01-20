@@ -7,6 +7,8 @@
     ResourceBundle res = ResourceBundle.getBundle("application");
     String BaseUrl = res.getString("url.base");
     String version = res.getString("build.version");
+    session.setAttribute("BaseUrl",BaseUrl);
+    session.setAttribute("version",version);
 %>
 <jsp:useBean id="date" class="java.util.Date" />
 <!DOCTYPE html>

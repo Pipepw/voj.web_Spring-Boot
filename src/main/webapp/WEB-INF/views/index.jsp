@@ -18,23 +18,23 @@
     <meta name="description" content="${description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico?v=${version}" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/style.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/misc/homepage.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/style.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/misc/homepage.css?v=${version}" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=${version}"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=<%=version%>"></script>
+        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=${version}"></script>
     <![endif]-->
     <!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome-ie7.min.css?v=<%=version%>" />
+        <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome-ie7.min.css?v=${version}" />
     <![endif]-->
     <!--[if lte IE 6]>
         <script type="text/javascript"> 
@@ -115,7 +115,7 @@
                         <c:forEach var="discussionThread" items="${discussionThreads}">
                             <tr class="discussion-thread">
                                 <td class="avatar" data-value="${fn:toLowerCase(discussionThread.discussionThreadCreator.email)}">
-                                    <img src="${discussionThread.discussionThreadCreator.avatarUrl}?v=<%=version%>" alt="avatar" />
+                                    <img src="${discussionThread.discussionThreadCreator.avatarUrl}?v=${version}" alt="avatar" />
                                 </td>
                                 <td class="overview">
                                     <h5><a href="<c:url value="/discussion/" />${discussionThread.discussionThreadId}">${discussionThread.discussionThreadTitle}</a></h5>
@@ -204,9 +204,9 @@
     <%@ include file="include/footer.jsp" %>
     <!-- Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="${BaseUrl}/js/site.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/site.js?v=${version}"></script>
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/moment.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/moment.min.js?v=${version}', function() {
             moment.locale('${language}');
             $('span.reply-datetime').each(function() {
                 var dateTime = $(this).html();

@@ -8,6 +8,8 @@
     ResourceBundle res = ResourceBundle.getBundle("application");
     String BaseUrl = res.getString("url.base");
     String version = res.getString("build.version");
+    session.setAttribute("BaseUrl",BaseUrl);
+    session.setAttribute("version",version);
 %>
 <!DOCTYPE html>
 <html lang="${language}">
@@ -19,24 +21,24 @@
     <meta name="description" content="${description}">
     <meta name="author" content="Haozhe Xie">
     <!-- Icon -->
-    <link href="img/favicon.ico?v=<%=version%>" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon.ico?v=${version}" rel="shortcut icon" type="image/x-icon">
     <!-- StyleSheets -->
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/style.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/submissions/submission.css?v=<%=version%>" />
-    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/highlight.min.css?v=<%=version%>" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/bootstrap-responsive.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/flat-ui.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome.min.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/style.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/submissions/submission.css?v=${version}" />
+    <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/highlight.min.css?v=${version}" />
     <!-- JavaScript -->
-    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=<%=version%>"></script>
-    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/jquery-1.11.1.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/bootstrap.min.js?v=${version}"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/md5.min.js?v=${version}"></script>
     <!--[if lte IE 9]>
-        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=<%=version%>"></script>
+        <script type="text/javascript" src="${BaseUrl}/js/jquery.placeholder.min.js?v=${version}"></script>
     <![endif]-->
     <!--[if lte IE 7]>
-        <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome-ie7.min.css?v=<%=version%>" />
+        <link rel="stylesheet" type="text/css" href="${BaseUrl}/css/font-awesome-ie7.min.css?v=${version}" />
     <![endif]-->
     <!--[if lte IE 6]>
         <script type="text/javascript"> 
@@ -122,7 +124,7 @@
             <div id="sidebar" class="span3">
                 <div id="submit-user" class="section">
                     <h5><spring:message code="voj.submissions.submission.user" text="User" /></h5>
-                    <img src="${myProfile.avatarUrl}?v=<%=version%>" alt="User Avatar" class="img-circle" />
+                    <img src="${myProfile.avatarUrl}?v=${version}" alt="User Avatar" class="img-circle" />
                     <p>
                         <spring:message code="voj.submissions.submission.submitted-by" text="Submitted by" /> <a href="<c:url value="/accounts/user/${submission.user.uid}" />">${submission.user.username}</a>
                     </p>
@@ -142,9 +144,9 @@
     <%@ include file="../include/footer.jsp" %>
     <!-- Java Script -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="${BaseUrl}/js/site.js?v=<%=version%>"></script>
+    <script type="text/javascript" src="${BaseUrl}/js/site.js?v=${version}"></script>
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/markdown.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/markdown.min.js?v=${version}', function() {
             converter = Markdown.getSanitizingConverter();
 
             $('.markdown').each(function() {
@@ -157,7 +159,7 @@
     </script>
     <c:if test="${submission.judgeResult.judgeResultName == 'Pending'}">
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/date-${language}.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/date-${language}.min.js?v=${version}', function() {
             var currentJudgeResult = 'Pending',
                 getterInterval     = setInterval(function() {
                     getRealTimeJudgeResult();
@@ -240,7 +242,7 @@
     </script>
     </c:if>
     <script type="text/javascript">
-        $.getScript('${BaseUrl}/js/highlight.min.js?v=<%=version%>', function() {
+        $.getScript('${BaseUrl}/js/highlight.min.js?v=${version}', function() {
             $('pre code').each(function(i, block) {
                 hljs.highlightBlock(block);
             });

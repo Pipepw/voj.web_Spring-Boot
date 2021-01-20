@@ -52,6 +52,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ModelAndView;
 
 import org.verwandlung.voj.web.model.Option;
@@ -76,7 +77,7 @@ public class ViewAspect {
 	 * @return 一个包含预期视图的ModelAndView对象
 	 * @throws Throwable - ResourceNotFound异常
 	 */
-	@Around(value = "execution(* org.verwandlung.voj.web.controller.*.*View(..)) && args(.., request, response)")
+	@Around(value = "execution(* org.verwandlung.voj.web.controller.*.*View(..)) && args(.., request, response)", argNames = "proceedingJoinPoint,request,response")
 	public ModelAndView getUserProfile(ProceedingJoinPoint proceedingJoinPoint, 
 			HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		ModelAndView view = null;
